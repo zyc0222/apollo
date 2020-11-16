@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright 2020 The Apollo Authors. All Rights Reserved.
+ * Copyright 2019 The Apollo Authors. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,6 +51,16 @@ class Vcupowerstatus214 : public ::apollo::drivers::canbus::ProtocolData<
   // 'is_signed_var': False, 'physical_range': '[0|1]', 'bit': 14, 'type':
   // 'bool', 'order': 'motorola', 'physical_unit': 'bit'}
   bool replacebatterystateindication(const std::uint8_t* bytes,
+                                     const int32_t length) const;
+
+
+  bool forbidden_aeb_signal(const std::uint8_t* bytes,
+                                     const int32_t length) const;
+
+  float bcu_chargedischargecurrent(const std::uint8_t* bytes,
+                                     const int32_t length) const;
+
+  float bcu_batt_internalvoltage(const std::uint8_t* bytes,
                                      const int32_t length) const;
 
   // config detail: {'name': 'VCU_DriverInfo_AliveCounter', 'offset': 0.0,
